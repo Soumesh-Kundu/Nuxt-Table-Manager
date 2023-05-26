@@ -1,18 +1,18 @@
 <template>
-  <div class="flex items-center justify-between py-5">
-    <div class="text-xl font-bold">
-      Last Changed at: <span class="text-gray-500"> 5/25/2023, 9:49:49 PM</span>
+  <div class="flex flex-col md:flex-row md:items-center  md:text-xl font-bold justify-between py-3 md:py-5">
+    <div >
+      Last Changed at: <span class="text-gray-400"> 5/25/2023, 9:49:49 PM</span>
     </div>
-    <div class="text-xl font-bold">
-      Total Hours Last 3 Months: <span class="text-gray-500">0 Hours</span>
+    <div >
+      Total Hours Last 3 Months: <span class="text-gray-400">0 Hours</span>
     </div>
-    <div class="text-xl font-bold">
-      Total Hours Next 3 Months: <span class="text-gray-500">0 Hours</span>
+    <div >
+      Total Hours Next 3 Months: <span class="text-gray-400">0 Hours</span>
     </div>
   </div>
   <div>
-    <h1 class="text-4xl font-bold">PAST / CONTINUING STAGE</h1>
-    <div>
+    <h1 class="text-2xl md:text-4xl font-bold">PAST / CONTINUING STAGE</h1>
+    <div class="overflow-x-auto">
       <table v-if="StageArray.length !== 0" class="w-full my-5 text-sm">
         <thead class="bg-gray-50">
           <tr>
@@ -27,10 +27,7 @@
         </thead>
         <tbody class="text-gray-500">
           <tr v-for="(item, index) in StageArray" :key="index">
-            {{
-              console.log(item)
-            }}
-            <td class="px-2 py-3">
+            <td >
               <select
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 v-if="index === editingIndex"
@@ -40,11 +37,11 @@
                 <option value="Service 2">Service 2</option>
                 <option value="Service 3">Service 3</option>
               </select>
-              <div v-else>
+              <div v-else class="px-2 py-3">
                 {{ item.workToBeDone }}
               </div>
             </td>
-            <td class="px-2 py-3">
+            <td >
               <input
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 type="number"
@@ -52,11 +49,11 @@
                 v-if="index === editingIndex"
                 v-model="editRow.hoursLast3Months"
               />
-              <div v-else>
+              <div v-else class="px-2 py-3">
                 {{ item.hoursLast3Months }}
               </div>
             </td>
-            <td class="px-2 py-3">
+            <td >
               <input
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 type="number"
@@ -64,11 +61,11 @@
                 v-if="index === editingIndex"
                 v-model="editRow.hoursNext3Months"
               />
-              <div v-else>
+              <div v-else class="px-2 py-3">
                 {{ item.hoursNext3Months }}
               </div>
             </td>
-            <td class="px-2 py-3">
+            <td>
               <select
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 v-if="index === editingIndex"
@@ -81,11 +78,11 @@
                 <option value="Executive Staff">Executive Staff</option>
                 <option value="Functional Group">Functional Group</option>
               </select>
-              <div v-else>
+              <div v-else  class="px-2 py-3">
                 {{ item.primaryStakeHolder }}
               </div>
             </td>
-            <td class="px-2 py-3">
+            <td >
               <select
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 v-if="index === editingIndex"
@@ -96,11 +93,11 @@
                 <option value="Customer Set">Customer Set</option>
                 <option value="Employee Set">Employee Set</option>
               </select>
-              <div v-else>
+              <div v-else class="px-2 py-3">
                 {{ item.outcome }}
               </div>
             </td>
-            <td class="px-2 py-3">
+            <td>
               <select
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 v-if="index === editingIndex"
@@ -110,11 +107,11 @@
                 <option value="Skilled">Skilled</option>
                 <option value="Expert">Expert</option>
               </select>
-              <div v-else>
+              <div v-else  class="px-2 py-3">
                 {{ item.skillsRequired }}
               </div>
             </td>
-            <td class="px-2 py-3">
+            <td>
               <select
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 v-if="index === editingIndex"
@@ -141,11 +138,11 @@
                   Service not needed/Not Adding value
                 </option>
               </select>
-              <div v-else>
+              <div v-else  class="px-2 py-3">
                 {{ item.workQuality }}
               </div>
             </td>
-            <td class="px-2 py-3">
+            <td >
               <select
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 v-if="index === editingIndex"
@@ -169,11 +166,11 @@
                   There is another person I know is better suited
                 </option>
               </select>
-              <div v-else>
+              <div v-else class="px-2 py-3">
                 {{ item.cabability }}
               </div>
             </td>
-            <td class="px-2 py-3">
+            <td >
               <select
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 v-if="index === editingIndex"
@@ -204,11 +201,11 @@
                   Not doing this, but would like to in the future
                 </option>
               </select>
-              <div v-else>
+              <div v-else class="px-2 py-3">
                 {{ item.interest }}
               </div>
             </td>
-            <td class="px-2 py-3">
+            <td >
               <input
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 type="text"
@@ -216,7 +213,7 @@
                 v-if="index === editingIndex"
                 v-model="editRow.comment"
               />
-              <div v-else>
+              <div v-else class="px-2 py-3">
                 {{ item.comment }}
               </div>
             </td>
@@ -312,7 +309,7 @@ const tHeadArray = [
   "Skills Required",
   "Work Quality",
   "Capability",
-  "	Interest",
+  "Interest",
   "Comment",
   "Action",
 ];
@@ -333,7 +330,6 @@ function addRow() {
   if (!isEmpty(editRow.value)) {
     StageArray.value.splice(editingIndex.value, 1, { ...editRow.value });
     editRow.value = { ...freshRow };
-    console.log(StageArray.value);
   } else {
     if (!Object.keys(StageArray.value.at(-1)).length) {
       StageArray.value.pop();

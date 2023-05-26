@@ -139,7 +139,7 @@
       </div>
     </nav>
   </header>
-  <div class="px-14">
+  <div class="px-3 sm:px-8 lg:px-14">
     <slot />
   </div>
 </template>
